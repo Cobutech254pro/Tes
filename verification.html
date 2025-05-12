@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Your Account - COBU-TECH INDUSTRY</title>
+    <link rel="stylesheet" href="/public/css/verification.css">
+</head>
+<body>
+    <div class="verification-container">
+        <h1>Verify Your Account</h1>
+        <p>Please enter the 6-digit code sent to your email address.</p>
+        <div class="code-input-container">
+            <input type="text" id="code-box-1" maxlength="1" class="code-box">
+            <input type="text" id="code-box-2" maxlength="1" class="code-box">
+            <input type="text" id="code-box-3" maxlength="1" class="code-box">
+            <input type="text" id="code-box-4" maxlength="1" class="code-box">
+            <input type="text" id="code-box-5" maxlength="1" class="code-box">
+            <input type="text" id="code-box-6" maxlength="1" class="code-box">
+        </div>
+        <div class="request-code-section">
+            <p id="request-code-message">You can request a new code in <span id="resend-countdown">20</span> seconds.</p>
+            <button id="resend-code-button" disabled>Resend Code</button>
+            <p id="attempts-left">Attempts left: 3</p>
+            <p id="wait-message" style="display: none; color: red;">Too many attempts. You can request a new code again in <span id="wait-countdown"></span>.</p>
+        </div>
+    </div>
+    <div class="background-text">
+        <span style="--i:1">P</span>
+        <span style="--i:2">L</span>
+        <span style="--i:3">E</span>
+        <span style="--i:4">A</span>
+        <span style="--i:5">S</span>
+        <span style="--i:6">E</span>
+        <span style="--i:7">&nbsp;</span>
+        <span style="--i:8">V</span>
+        <span style="--i:9">E</span>
+        <span style="--i:10">R</span>
+        <span style="--i:11">I</span>
+        <span style="--i:12">F</span>
+        <span style="--i:13">Y</span>
+    </div>
+    <script src="/public/js/verification.js"></script>
+</body>
+</html>
+
