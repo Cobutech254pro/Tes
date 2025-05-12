@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f4f4f4;
+    background-color: #00ff00; /* Pure green background */
     overflow: hidden; /* Hide background text overflow */
 }
 
@@ -15,6 +15,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    z-index: 1; /* Ensure the verification box is on top */
 }
 
 h1 {
@@ -72,35 +73,43 @@ p {
     cursor: not-allowed;
 }
 
+.background-text-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Allow interaction with elements below */
+}
+
 .background-text {
     position: absolute;
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4em;
-    color: #ddd;
+    font-size: 2em; /* Adjust size as needed */
+    font-weight: bold;
     white-space: nowrap;
+    animation: flowText 15s linear infinite; /* Adjust animation speed */
+    color: transparent;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
-.background-text span {
-    position: relative;
-    animation: animateText 3s linear infinite;
-    animation-delay: calc(0.1s * var(--i));
+.background-text.verify {
+    top: 0;
 }
 
-@keyframes animateText {
+.background-text.industry {
+    top: 50%; /* Start the second text in the middle */
+    animation-delay: -7.5s; /* Offset the animation to create a continuous flow */
+}
+
+@keyframes flowText {
     0% {
-        transform: translateY(0);
-        opacity: 0.8;
-    }
-    50% {
-        transform: translateY(-20px);
-        opacity: 0.5;
+        transform: translateX(100%);
     }
     100% {
-        transform: translateY(0);
-        opacity: 0.8;
+        transform: translateX(-100%);
     }
 }
