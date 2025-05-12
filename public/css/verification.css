@@ -94,8 +94,8 @@ p {
     background: linear-gradient(180deg, red, orange, yellow, green, blue, indigo, violet); /* Vertical gradient */
     -webkit-background-clip: text;
     background-clip: text;
-    animation: flowTextVertical 30s linear infinite; /* Faster vertical animation (10 seconds) */
-    margin-bottom: 10px; /* Spacing between repetitions */
+    animation: flowTextVertical 1s linear infinite; /* Faster vertical animation (10 seconds) */
+    margin-bottom: 5px; /* Spacing between repetitions */
 }
 
 @keyframes flowTextVertical {
