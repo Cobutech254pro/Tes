@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const codeBoxesContainer = document.querySelector('.code-input-container');
     const codeBoxes = document.querySelectorAll('.code-box');
     const resendButton = document.getElementById('resend-code-button');
     const resendCountdownElement = document.getElementById('resend-countdown');
@@ -13,18 +14,26 @@ document.addEventListener('DOMContentLoaded', function() {
     let waitPeriod = 24 * 60 * 60; // 24 hours in seconds
     let waitInterval;
     let canRequestCode = true;
+    let verificationBlocked = false; // Flag to track if verification is blocked
 
     // Focus on the first input box on load
     codeBoxes[0].focus();
 
-    // Function to update attempt count display
+    // Function to update attempt count display and handle blocking
     function updateAttempts() {
         attemptsLeftElement.textContent = `Attempts left: ${attempts}`;
-        if (attempts === 0) {
+        if (attempts === 0 && !verificationBlocked) {
+            verificationBlocked = true;
             canRequestCode = false;
             resendButton.disabled = true;
             document.getElementById('request-code-message').style.display = 'none';
             waitMessageElement.style.display = 'block';
+            codeBoxesContainer.style.display = 'none'; // Hide the input boxes
+            const blockedSymbol = document.createElement('div');
+            blockedSymbol.textContent = '⛔';
+            blockedSymbol.style.fontSize = '5em';
+            blockedSymbol.color = 'red';
+            codeBoxesContainer.parentNode.insertBefore(blockedSymbol, codeBoxesContainer);
             startWaitCountdown();
         }
     }
@@ -57,9 +66,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 clearInterval(waitInterval);
                 attempts = 3;
                 canRequestCode = true;
+                verificationBlocked = false;
                 updateAttempts();
                 waitMessageElement.style.display = 'none';
                 document.getElementById('request-code-message').style.display = 'block';
+                codeBoxesContainer.style.display = 'flex'; // Show the input boxes again
+                const blockedSymbol = codeBoxesContainer.parentNode.querySelector('div');
+                if (blockedSymbol && blockedSymbol.textContent === '⛔') {
+                    blockedSymbol.remove(); // Remove the blocked symbol
+                }
                 startResendCountdown();
             }
         }, 1000);
@@ -88,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .map(box => box.value)
                 .join('');
 
-            if (enteredCode.length === 6) {
+            if (enteredCode.length === 6 && !verificationBlocked) {
                 verifyCode(enteredCode);
             }
         });
@@ -138,4 +153,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start the initial resend countdown
     startResendCountdown();
 });
-          
