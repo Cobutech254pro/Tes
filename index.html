@@ -9,8 +9,11 @@
 <body>
     <div class="verification-container">
         <h1>Verify Your Account</h1>
-        <p>Please enter the 6-digit code sent to your email address.</p>
-        <div class="code-input-container">
+        <p>Please enter the code below to verify your account.</p>
+        <div class="code-display-container">
+            <span id="verification-code-display">XXXXXX</span> <button id="copy-code-button">Copy Code</button>
+        </div>
+        <div class="code-input-container" style="display: none;">
             <input type="text" id="code-box-1" maxlength="1" class="code-box">
             <input type="text" id="code-box-2" maxlength="1" class="code-box">
             <input type="text" id="code-box-3" maxlength="1" class="code-box">
@@ -26,16 +29,16 @@
         </div>
     </div>
     <div class="background-text-container">
-        <div class="background-text">Please verify cobutech industry</div>
-        <div class="background-text">Please verify cobutech industry</div>
-        <div class="background-text">Please verify cobutech industry</div>
-        <div class="background-text">Please verify cobutech industry</div>
-        <div class="background-text">Please verify cobutech industry</div>
-        <div class="background-text">Please verify cobutech industry</div>
-        <div class="background-text">Please verify cobutech industry</div>
-        <div class="background-text">Please verify cobutech industry</div>
-        <div class="background-text">Please verify cobutech industry</div>
-        <div class="background-text">Please verify cobutech industry</div>
+        <div class="background-text">😀😃😄😄😆😆😅😂🤣😭😉😗😙😘😘😚🥰😍🤩🤩🥳🥳😌😊🥹🥲🙃🫠😋😛😜🤪🙂‍↕️☺️😊😌😌😬😐🥺🥺🤫😔🥺🤤😛😝😶🫢🫢🫢😶‍🌫️🫣🤐🤐😶😶‍🌫️🥱🫣😱🥴🤪🤪😜😝😛😬😬🥱😶‍🌫️🤪😴😪😣😖😩😵‍💫😵🤮🤢😪🤒🤕🤕😷😷🥵🥶😵😫😩😣😨😦😮😯😲😳🤯🤯🤯😯🤍💘💝💗💓💞💕🩶🩶💝💚💛💛❣️💔❤️‍🔥💋🧠🫀🫀🫦👄👁️👀🦴🦴🦷👀🦾👃👍👏👏🦾🦾🦶🦻🦿👃👂🦠🦠🩸🫀💋🫂💓💝💝🩷🩷💛💚💜🤎🖤🩶❤️🔥🔥🕳️💦💦💨💫🙊🙉🌟💥💢❤️🎉💜🔥💤💯⚡❣️🫀❤️‍🔥❤️‍🔥</div>
+        <div class="background-text">😀😃😄😄😆😆😅😂🤣😭😉😗😙😘😘😚🥰😍🤩🤩🥳🥳😌😊🥹🥲🙃🫠😋😛😜🤪🙂‍↕️☺️😊😌😌😬😐🥺🥺🤫😔🥺🤤😛😝😶🫢🫢🫢😶‍🌫️🫣🤐🤐😶😶‍🌫️🥱🫣😱🥴🤪🤪😜😝😛😬😬🥱😶‍🌫️🤪😴😪😣😖😩😵‍💫😵🤮🤢😪🤒🤕🤕😷😷🥵🥶😵😫😩😣😨😦😮😯😲😳🤯🤯🤯😯🤍💘💝💗💓💞💕🩶🩶💝💚💛💛❣️💔❤️‍🔥💋🧠🫀🫀🫦👄👁️👀🦴🦴🦷👀🦾👃👍👏👏🦾🦾🦶🦻🦿👃👂🦠🦠🩸🫀💋🫂💓💝💝🩷🩷💛💚💜🤎🖤🩶❤️🔥🔥🕳️💦💦💨💫🙊🙉🌟💥💢❤️🎉💜🔥💤💯⚡❣️🫀❤️‍🔥❤️‍🔥</div>
+        <div class="background-text">😀😃😄😄😆😆😅😂🤣😭😉😗😙😘😘😚🥰😍🤩🤩🥳🥳😌😊🥹🥲🙃🫠😋😛😜🤪🙂‍↕️☺️😊😌😌😬😐🥺🥺🤫😔🥺🤤😛😝😶🫢🫢🫢😶‍🌫️🫣🤐🤐😶😶‍🌫️🥱🫣😱🥴🤪🤪😜😝😛😬😬🥱😶‍🌫️🤪😴😪😣😖😩😵‍💫😵🤮🤢😪🤒🤕🤕😷😷🥵🥶😵😫😩😣😨😦😮😯😲😳🤯🤯🤯😯🤍💘💝💗💓💞💕🩶🩶💝💚💛💛❣️💔❤️‍🔥💋🧠🫀🫀🫦👄👁️👀🦴🦴🦷👀🦾👃👍👏👏🦾🦾🦶🦻🦿👃👂🦠🦠🩸🫀💋🫂💓💝💝🩷🩷💛💚💜🤎🖤🩶❤️🔥🔥🕳️💦💦💨💫🙊🙉🌟💥💢❤️🎉💜🔥💤💯⚡❣️🫀❤️‍🔥❤️‍🔥</div>
+        <div class="background-text">😀😃😄😄😆😆😅😂🤣😭😉😗😙😘😘😚🥰😍🤩🤩🥳🥳😌😊🥹🥲🙃🫠😋😛😜🤪🙂‍↕️☺️😊😌😌😬😐🥺🥺🤫😔🥺🤤😛😝😶🫢🫢🫢😶‍🌫️🫣🤐🤐😶😶‍🌫️🥱🫣😱🥴🤪🤪😜😝😛😬😬🥱😶‍🌫️🤪😴😪😣😖😩😵‍💫😵🤮🤢😪🤒🤕🤕😷😷🥵🥶😵😫😩😣😨😦😮😯😲😳🤯🤯🤯😯🤍💘💝💗💓💞💕🩶🩶💝💚💛💛❣️💔❤️‍🔥💋🧠🫀🫀🫦👄👁️👀🦴🦴🦷👀🦾👃👍👏👏🦾🦾🦶🦻🦿👃👂🦠🦠🩸🫀💋🫂💓💝💝🩷🩷💛💚💜🤎🖤🩶❤️🔥🔥🕳️💦💦💨💫🙊🙉🌟💥💢❤️🎉💜🔥💤💯⚡❣️🫀❤️‍🔥❤️‍🔥</div>
+        <div class="background-text">😀😃😄😄😆😆😅😂🤣😭😉😗😙😘😘😚🥰😍🤩🤩🥳🥳😌😊🥹🥲🙃🫠😋😛😜🤪🙂‍↕️☺️😊😌😌😬😐🥺🥺🤫😔🥺🤤😛😝😶🫢🫢🫢😶‍🌫️🫣🤐🤐😶😶‍🌫️🥱🫣😱🥴🤪🤪😜😝😛😬😬🥱😶‍🌫️🤪😴😪😣😖😩😵‍💫😵🤮🤢😪🤒🤕🤕😷😷🥵🥶😵😫😩😣😨😦😮😯😲😳🤯🤯🤯😯🤍💘💝💗💓💞💕🩶🩶💝💚💛💛❣️💔❤️‍🔥💋🧠🫀🫀🫦👄👁️👀🦴🦴🦷👀🦾👃👍👏👏🦾🦾🦶🦻🦿👃👂🦠🦠🩸🫀💋🫂💓💝💝🩷🩷💛💚💜🤎🖤🩶❤️🔥🔥🕳️💦💦💨💫🙊🙉🌟💥💢❤️🎉💜🔥💤💯⚡❣️🫀❤️‍🔥❤️‍🔥</div>
+        <div class="background-text">😀😃😄😄😆😆😅😂🤣😭😉😗😙😘😘😚🥰😍🤩🤩🥳🥳😌😊🥹🥲🙃🫠😋😛😜🤪🙂‍↕️☺️😊😌😌😬😐🥺🥺🤫😔🥺🤤😛😝😶🫢🫢🫢😶‍🌫️🫣🤐🤐😶😶‍🌫️🥱🫣😱🥴🤪🤪😜😝😛😬😬🥱😶‍🌫️🤪😴😪😣😖😩😵‍💫😵🤮🤢😪🤒🤕🤕😷😷🥵🥶😵😫😩😣😨😦😮😯😲😳🤯🤯🤯😯🤍💘💝💗💓💞💕🩶🩶💝💚💛💛❣️💔❤️‍🔥💋🧠🫀🫀🫦👄👁️👀🦴🦴🦷👀🦾👃👍👏👏🦾🦾🦶🦻🦿👃👂🦠🦠🩸🫀💋🫂💓💝💝🩷🩷💛💚💜🤎🖤🩶❤️🔥🔥🕳️💦💦💨💫🙊🙉🌟💥💢❤️🎉💜🔥💤💯⚡❣️🫀❤️‍🔥❤️‍🔥</div>
+        <div class="background-text">😀😃😄😄😆😆😅😂🤣😭😉😗😙😘😘😚🥰😍🤩🤩🥳🥳😌😊🥹🥲🙃🫠😋😛😜🤪🙂‍↕️☺️😊😌😌😬😐🥺🥺🤫😔🥺🤤😛😝😶🫢🫢🫢😶‍🌫️🫣🤐🤐😶😶‍🌫️🥱🫣😱🥴🤪🤪😜😝😛😬😬🥱😶‍🌫️🤪😴😪😣😖😩😵‍💫😵🤮🤢😪🤒🤕🤕😷😷🥵🥶😵😫😩😣😨😦😮😯😲😳🤯🤯🤯😯🤍💘💝💗💓💞💕🩶🩶💝💚💛💛❣️💔❤️‍🔥💋🧠🫀🫀🫦👄👁️👀🦴🦴🦷👀🦾👃👍👏👏🦾🦾🦶🦻🦿👃👂🦠🦠🩸🫀💋🫂💓💝💝🩷🩷💛💚💜🤎🖤🩶❤️🔥🔥🕳️💦💦💨💫🙊🙉🌟💥💢❤️🎉💜🔥💤💯⚡❣️🫀❤️‍🔥❤️‍🔥</div>
+        <div class="background-text">😀😃😄😄😆😆😅😂🤣😭😉😗😙😘😘😚🥰😍🤩🤩🥳🥳😌😊🥹🥲🙃🫠😋😛😜🤪🙂‍↕️☺️😊😌😌😬😐🥺🥺🤫😔🥺🤤😛😝😶🫢🫢🫢😶‍🌫️🫣🤐🤐😶😶‍🌫️🥱🫣😱🥴🤪🤪😜😝😛😬😬🥱😶‍🌫️🤪😴😪😣😖😩😵‍💫😵🤮🤢😪🤒🤕🤕😷😷🥵🥶😵😫😩😣😨😦😮😯😲😳🤯🤯🤯😯🤍💘💝💗💓💞💕🩶🩶💝💚💛💛❣️💔❤️‍🔥💋🧠🫀🫀🫦👄👁️👀🦴🦴🦷👀🦾👃👍👏👏🦾🦾🦶🦻🦿👃👂🦠🦠🩸🫀💋🫂💓💝💝🩷🩷💛💚💜🤎🖤🩶❤️🔥🔥🕳️💦💦💨💫🙊🙉🌟💥💢❤️🎉💜🔥💤💯⚡❣️🫀❤️‍🔥❤️‍🔥</div>
+        <div class="background-text">😀😃😄😄😆😆😅😂🤣😭😉😗😙😘😘😚🥰😍🤩🤩🥳🥳😌😊🥹🥲🙃🫠😋😛😜🤪🙂‍↕️☺️😊😌😌😬😐🥺🥺🤫😔🥺🤤😛😝😶🫢🫢🫢😶‍🌫️🫣🤐🤐😶😶‍🌫️🥱🫣😱🥴🤪🤪😜😝😛😬😬🥱😶‍🌫️🤪😴😪😣😖😩😵‍💫😵🤮🤢😪🤒🤕🤕😷😷🥵🥶😵😫😩😣😨😦😮😯😲😳🤯🤯🤯😯🤍💘💝💗💓💞💕🩶🩶💝💚💛💛❣️💔❤️‍🔥💋🧠🫀🫀🫦👄👁️👀🦴🦴🦷👀🦾👃👍👏👏🦾🦾🦶🦻🦿👃👂🦠🦠🩸🫀💋🫂💓💝💝🩷🩷💛💚💜🤎🖤🩶❤️🔥🔥🕳️💦💦💨💫🙊🙉🌟💥💢❤️🎉💜🔥💤💯⚡❣️🫀❤️‍🔥❤️‍🔥</div>
+        <div class="background-text">😀😃😄😄😆😆😅😂🤣😭😉😗😙😘😘😚🥰😍🤩🤩🥳🥳😌😊🥹🥲🙃🫠😋😛😜🤪🙂‍↕️☺️😊😌😌😬😐🥺🥺🤫😔🥺🤤😛😝😶🫢🫢🫢😶‍🌫️🫣🤐🤐😶😶‍🌫️🥱🫣😱🥴🤪🤪😜😝😛😬😬🥱😶‍🌫️🤪😴😪😣😖😩😵‍💫😵🤮🤢😪🤒🤕🤕😷😷🥵🥶😵😫😩😣😨😦😮😯😲😳🤯🤯🤯😯🤍💘💝💗💓💞💕🩶🩶💝💚💛💛❣️💔❤️‍🔥💋🧠🫀🫀🫦👄👁️👀🦴🦴🦷👀🦾👃👍👏👏🦾🦾🦶🦻🦿👃👂🦠🦠🩸🫀💋🫂💓💝💝🩷🩷💛💚💜🤎🖤🩶❤️🔥🔥🕳️💦💦💨💫🙊🙉🌟💥💢❤️🎉💜🔥💤💯⚡❣️🫀❤️‍🔥❤️‍🔥</div>
     </div>
     <script src="/public/js/verification.js"></script>
 </body>
