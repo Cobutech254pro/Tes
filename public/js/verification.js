@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const verificationCodeDisplay = document.getElementById('verification-code-display');
+    const copyCodeButton = document.getElementById('copy-code-button');
     const codeBoxesContainer = document.querySelector('.code-input-container');
     const codeBoxes = document.querySelectorAll('.code-box');
     const resendButton = document.getElementById('resend-code-button');
@@ -7,7 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const waitMessageElement = document.getElementById('wait-message');
     const waitCountdownElement = document.getElementById('wait-countdown');
 
-    let verificationCode = "123456"; // Replace with code from backend (for now)
+    let actualVerificationCode = "123456"; // Replace with actual code from backend
+    verificationCodeDisplay.textContent = actualVerificationCode; // Display the code
+
     let attempts = 3;
     let resendAvailableIn = 20;
     let resendInterval;
@@ -15,9 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let waitInterval;
     let canRequestCode = true;
     let verificationBlocked = false; // Flag to track if verification is blocked
-
-    // Focus on the first input box on load
-    codeBoxes[0].focus();
 
     // Function to update attempt count display and handle blocking
     function updateAttempts() {
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     }
 
-    // Event listener for input in the code boxes
+    // Event listener for input in the code boxes (now hidden)
     codeBoxes.forEach((box, index) => {
         box.addEventListener('input', function() {
             const currentBox = this;
@@ -126,18 +127,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to simulate code verification (replace with API call)
     function verifyCode(enteredCode) {
-        if (enteredCode === verificationCode) {
-            codeBoxes.forEach(box => box.classList.add('correct'));
+        if (enteredCode === actualVerificationCode) {
+            // Verification successful, you might want to hide the display and show a success message
             alert('Account verified successfully!');
             // Redirect to dashboard or another page
             // window.location.href = '/dashboard.html';
         } else {
-            codeBoxes.forEach(box => box.classList.add('incorrect'));
-            setTimeout(() => {
-                codeBoxes.forEach(box => box.classList.remove('incorrect'));
-                codeBoxes[0].focus();
-                codeBoxes.forEach(box => box.value = '');
-            }, 1000);
             attempts--;
             updateAttempts();
         }
@@ -148,8 +143,26 @@ document.addEventListener('DOMContentLoaded', function() {
         // TODO: Implement API call to resend verification code to the backend
         console.log('Resend code requested');
         startResendCountdown();
+        // TODO: When a new code is received from the backend, update verificationCodeDisplay.textContent
+    });
+
+    // Event listener for the copy code button
+    copyCodeButton.addEventListener('click', function() {
+        const codeToCopy = verificationCodeDisplay.textContent;
+        navigator.clipboard.writeText(codeToCopy)
+            .then(() => {
+                alert('Code copied to clipboard!');
+            })
+            .catch(err => {
+                console.error('Failed to copy code: ', err);
+                alert('Failed to copy code. Please select and copy manually.');
+            });
     });
 
     // Start the initial resend countdown
     startResendCountdown();
+
+    // Initially hide the input boxes
+    codeBoxesContainer.style.display = 'none';
 });
+                    
