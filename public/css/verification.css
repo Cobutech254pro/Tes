@@ -81,35 +81,28 @@ p {
     height: 100%;
     overflow: hidden;
     pointer-events: none; /* Allow interaction with elements below */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the text horizontally */
 }
 
 .background-text {
-    position: absolute;
-    width: 100%;
     font-size: 2em; /* Adjust size as needed */
     font-weight: bold;
     white-space: nowrap;
-    animation: flowText 15s linear infinite; /* Adjust animation speed */
     color: transparent;
-    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    background: linear-gradient(180deg, red, orange, yellow, green, blue, indigo, violet); /* Vertical gradient */
     -webkit-background-clip: text;
     background-clip: text;
+    animation: flowTextVertical 20s linear infinite; /* Vertical animation */
+    margin-bottom: 20px; /* Spacing between repetitions */
 }
 
-.background-text.verify {
-    top: 0;
-}
-
-.background-text.industry {
-    top: 50%; /* Start the second text in the middle */
-    animation-delay: -7.5s; /* Offset the animation to create a continuous flow */
-}
-
-@keyframes flowText {
+@keyframes flowTextVertical {
     0% {
-        transform: translateX(100%);
+        transform: translateY(-100%);
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateY(100%);
     }
 }
